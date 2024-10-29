@@ -1,0 +1,105 @@
+﻿<Window x:Class="FARM_MANAGEMENT_WPF.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FARM_MANAGEMENT_WPF"
+        mc:Ignorable="d"
+           Title="Login" Height="500" Width="400"
+     WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    AllowsTransparency="True"
+    Background="Transparent">
+    <Border CornerRadius="20" 
+        Background="White"
+        BorderBrush="#4A6741"
+        BorderThickness="2"
+        Margin="20">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="15" Direction="-90" RenderingBias="Quality" ShadowDepth="2"/>
+        </Border.Effect>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Header với nút đóng -->
+            <Button Content="✕" 
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="10"
+                Width="30"
+                Height="30"
+                Style="{StaticResource CloseButtonStyle}"
+                Click="CloseButton_Click"/>
+
+            <!-- Nội dung đăng nhập -->
+            <StackPanel Grid.Row="1" 
+                    Margin="30,0"
+                    VerticalAlignment="Center">
+
+                <Image Source="/FARM_MANAGEMENT_WPF;component/Images/farm_chicken.png" 
+                   Width="120" 
+                   Height="120"
+                   Margin="0,0,0,20"/>
+
+                <TextBlock Text="ĐĂNG NHẬP"
+                      FontSize="28"
+                      FontWeight="Bold"
+                      TextAlignment="Center"
+                      Foreground="#4A6741"
+                      Margin="0,0,0,30"/>
+
+                <Grid Margin="0,0,0,20">
+                    <TextBox x:Name="txtUsername"
+             Style="{StaticResource ModernTextBox}"/>
+                    <TextBlock IsHitTestVisible="False"
+               Text="Email"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Left"
+               Margin="15,0,0,0"
+               Foreground="DarkGray">
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Text, ElementName=txtUsername}" Value="">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Grid>
+
+                <Grid Margin="0,0,0,30">
+                    <PasswordBox x:Name="txtPassword"
+                 Style="{StaticResource ModernPasswordBox}"/>
+                    <TextBlock IsHitTestVisible="False"
+               Text="Mật khẩu"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Left"
+               Margin="15,0,0,0"
+               Foreground="DarkGray">
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Password, ElementName=txtPassword, UpdateSourceTrigger=PropertyChanged}" Value="">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Grid>
+
+                <Button Content="ĐĂNG NHẬP"
+                    Style="{StaticResource LoginButtonStyle}" Click="Button_Click"/>
+            </StackPanel>
+        </Grid>
+
+    </Border>
+</Window>

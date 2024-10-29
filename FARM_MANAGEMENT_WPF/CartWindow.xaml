@@ -1,0 +1,121 @@
+﻿<Window x:Class="FARM_MANAGEMENT_WPF.CartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FARM_MANAGEMENT_WPF"
+        mc:Ignorable="d"
+        Title="Giỏ Hàng" Height="700" Width="800"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <StackPanel Grid.Row="0" 
+                    Orientation="Horizontal"
+                    Margin="0,0,0,20">
+            <Button Content="← Quay lại" 
+                    Style="{StaticResource LoginButtonStyle}"
+                    Click="BackToProducts_Click"/>
+            <TextBlock Text="Giỏ Hàng"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       Margin="20,0,0,0"
+                       VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <!-- Danh sách sản phẩm trong giỏ -->
+        <ListView Grid.Row="1" 
+                  x:Name="CartList">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="#E0E0E0" 
+                            BorderThickness="1"
+                            CornerRadius="8"
+                            Padding="15"
+                            Margin="0,5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Hình ảnh sản phẩm -->
+                            <Image Source="{Binding Product.ImageSource}" 
+                                   Width="60" 
+                                   Height="60"/>
+
+                            <!-- Thông tin sản phẩm -->
+                            <StackPanel Grid.Column="1" 
+                                      Margin="15,0">
+                                <TextBlock Text="{Binding Product.Name}"
+                                           FontSize="16"
+                                           FontWeight="SemiBold"/>
+                                <TextBlock Text="{Binding Product.Price, StringFormat='{}{0:N0} VNĐ'}"
+                                           Foreground="#4A6741"/>
+                            </StackPanel>
+
+                            <!-- Điều chỉnh số lượng -->
+                            <StackPanel Grid.Column="2" 
+                                      Orientation="Horizontal"
+                                      Margin="10,0">
+                                <Button Content="-" 
+                                        Style="{StaticResource CartButtonStyle}"
+                                        Click="DecreaseQuantity_Click"/>
+                                <TextBlock Text="{Binding Quantity}"
+                                           Width="40"
+                                           TextAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                                <Button Content="+" 
+                                        Style="{StaticResource CartButtonStyle}"
+                                        Click="IncreaseQuantity_Click"/>
+                            </StackPanel>
+
+                            <!-- Nút xóa -->
+                            <Button Grid.Column="3"
+                                    Content="✕"
+                                    Style="{StaticResource CloseButtonStyle}"
+                                    Click="RemoveFromCart_Click"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!-- Footer: Tổng tiền và thanh toán -->
+        <Grid Grid.Row="2" 
+              Margin="0,20,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Tổng tiền -->
+            <Grid Margin="0,0,0,20">
+                <TextBlock Text="Tổng tiền:"
+                           FontSize="18"
+                           FontWeight="Bold"/>
+                <TextBlock x:Name="txtTotalAmount"
+                           Text="0 VNĐ"
+                           FontSize="18"
+                           FontWeight="Bold"
+                           Foreground="#4A6741"
+                           HorizontalAlignment="Right"/>
+            </Grid>
+
+            <!-- Nút thanh toán -->
+            <Button Grid.Row="1"
+                    Content="THANH TOÁN"
+                    Height="50"
+                    Style="{StaticResource LoginButtonStyle}"
+                    Click="Checkout_Click"/>
+        </Grid>
+    </Grid>
+</Window>
