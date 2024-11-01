@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Services;
+using BussinessObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,14 +21,21 @@ namespace FARM_MANAGEMENT_WPF
     /// </summary>
     public partial class AddEditCattleWindow : Window
     {
+        private CageService _cageService;
         public AddEditCattleWindow()
         {
             InitializeComponent();
+            this._cageService = CageService.GetInstance();
+            LoadCages();
         }
 
         private void LoadCages()
         {
-           
+            List<Cage> cages = _cageService.GetAllCage();
+            MessageBox.Show(cages.Count().ToString());
+            cboCage.ItemsSource = cages;
+            cboCage.DisplayMemberPath = "CageId";
+            cboCage.SelectedValuePath = "CageId";
         }
 
         private void LoadCattleData()
@@ -36,7 +45,13 @@ namespace FARM_MANAGEMENT_WPF
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-           
+            ValidateInput();
+            var cattle = new Cattle()
+            {
+                Age = int.Parse(txtAge.Text),
+                Weight = decimal.Parse(txtWeight.Text),
+                
+            };
         }
 
         private bool ValidateInput()
@@ -60,7 +75,7 @@ namespace FARM_MANAGEMENT_WPF
             }
 
             // Kiểm tra cân nặng
-            if (!double.TryParse(txtWeight.Text, out double weight) || weight <= 0)
+            if (!decimal.TryParse(txtWeight.Text, out decimal weight) || weight <= 0)
             {
                 MessageBox.Show("Cân nặng phải là số dương!", "Thông báo",
                               MessageBoxButton.OK, MessageBoxImage.Warning);

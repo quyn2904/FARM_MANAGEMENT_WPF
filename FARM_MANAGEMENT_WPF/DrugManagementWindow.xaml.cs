@@ -75,5 +75,10 @@ namespace FARM_MANAGEMENT_WPF
             staffWindow.Show();
             this.Close();
         }
+
+        private void txtSearch_TextChanged(object sender, object e)
+        {
+
+        }
     }
 }

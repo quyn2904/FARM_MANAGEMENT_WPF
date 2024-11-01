@@ -61,7 +61,6 @@
                              x:Name="txtSearch"
                              BorderThickness="0"
                              VerticalAlignment="Center"
-                             TextChanged="txtSearch_TextChanged"
                              Background="Transparent">
                         <TextBox.Style>
                             <Style TargetType="TextBox">

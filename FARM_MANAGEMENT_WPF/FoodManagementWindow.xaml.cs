@@ -75,5 +75,10 @@ namespace FARM_MANAGEMENT_WPF
             staffWindow.Show();
             this.Close();
         }
+
+        private void cboType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

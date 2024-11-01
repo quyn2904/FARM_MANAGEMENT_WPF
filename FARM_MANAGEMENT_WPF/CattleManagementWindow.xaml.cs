@@ -80,6 +80,14 @@ namespace FARM_MANAGEMENT_WPF
             
         }
 
-       
+        private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void cboCage_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
