@@ -35,6 +35,8 @@ public partial class MyFarmContext : DbContext
 
     public virtual DbSet<StaffByCage> StaffByCages { get; set; }
 
+    public virtual DbSet<Sysdiagram> Sysdiagrams { get; set; }
+
     private string? GetConnectionString()
     {
         IConfiguration configuration = new ConfigurationBuilder()
@@ -53,7 +55,6 @@ public partial class MyFarmContext : DbContext
 
         return adminEmail == email && adminPassword == password;
     }
-
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.UseSqlServer(GetConnectionString());
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -62,9 +63,6 @@ public partial class MyFarmContext : DbContext
         {
             entity.ToTable("Cage");
 
-            entity.Property(e => e.CageId)
-                .ValueGeneratedNever()
-                .HasColumnName("CageID");
             entity.Property(e => e.Status)
                 .HasMaxLength(20)
                 .IsUnicode(false);
@@ -74,12 +72,13 @@ public partial class MyFarmContext : DbContext
         {
             entity.ToTable("Cattle");
 
-            entity.Property(e => e.CattleId)
-                .ValueGeneratedNever()
-                .HasColumnName("CattleID");
+            entity.Property(e => e.CattleId).HasColumnName("CattleID");
             entity.Property(e => e.HealthStatus)
                 .HasMaxLength(20)
                 .IsUnicode(false);
+            entity.Property(e => e.Status)
+                .HasDefaultValue(true)
+                .HasColumnName("status");
             entity.Property(e => e.Weight).HasColumnType("decimal(5, 2)");
         });
 
@@ -87,7 +86,9 @@ public partial class MyFarmContext : DbContext
         {
             entity.ToTable("CattleByCage");
 
-            entity.HasIndex(e => new { e.CattleId, e.CageId }, "UX_CattleByCage_CattleID_CageID").IsUnique();
+            entity.HasIndex(e => new { e.CattleId, e.CageId }, "UX_CattleByCage_CattleID_CageID")
+                .IsUnique()
+                .HasFillFactor(100);
 
             entity.Property(e => e.CattleByCageId).HasColumnName("CattleByCageID");
             entity.Property(e => e.CageId).HasColumnName("CageID");
@@ -114,9 +115,7 @@ public partial class MyFarmContext : DbContext
         {
             entity.ToTable("CattleDrug");
 
-            entity.Property(e => e.CattleDrugId)
-                .ValueGeneratedNever()
-                .HasColumnName("CattleDrugID");
+            entity.Property(e => e.CattleDrugId).HasColumnName("CattleDrugID");
             entity.Property(e => e.CattleId).HasColumnName("CattleID");
             entity.Property(e => e.Dosage)
                 .HasMaxLength(50)
@@ -140,9 +139,7 @@ public partial class MyFarmContext : DbContext
 
             entity.ToTable("CattleFoodSchedule");
 
-            entity.Property(e => e.ScheduleId)
-                .ValueGeneratedNever()
-                .HasColumnName("ScheduleID");
+            entity.Property(e => e.ScheduleId).HasColumnName("ScheduleID");
             entity.Property(e => e.CattleId).HasColumnName("CattleID");
             entity.Property(e => e.FeedingTime)
                 .HasMaxLength(20)
@@ -162,9 +159,7 @@ public partial class MyFarmContext : DbContext
         {
             entity.ToTable("Drug");
 
-            entity.Property(e => e.DrugId)
-                .ValueGeneratedNever()
-                .HasColumnName("DrugID");
+            entity.Property(e => e.DrugId).HasColumnName("DrugID");
             entity.Property(e => e.Name)
                 .HasMaxLength(50)
                 .IsUnicode(false);
@@ -178,9 +173,7 @@ public partial class MyFarmContext : DbContext
         {
             entity.ToTable("Food");
 
-            entity.Property(e => e.FoodId)
-                .ValueGeneratedNever()
-                .HasColumnName("FoodID");
+            entity.Property(e => e.FoodId).HasColumnName("FoodID");
             entity.Property(e => e.Name)
                 .HasMaxLength(50)
                 .IsUnicode(false);
@@ -191,11 +184,7 @@ public partial class MyFarmContext : DbContext
 
         modelBuilder.Entity<Staff>(entity =>
         {
-            entity.HasKey(e => e.StaffId).HasName("PK_AnimalCareStaff");
-
-            entity.Property(e => e.StaffId)
-                .ValueGeneratedNever()
-                .HasColumnName("StaffID");
+            entity.Property(e => e.StaffId).HasColumnName("StaffID");
             entity.Property(e => e.Email)
                 .HasMaxLength(50)
                 .IsUnicode(false);
@@ -218,9 +207,7 @@ public partial class MyFarmContext : DbContext
         {
             entity.ToTable("StaffByCage");
 
-            entity.Property(e => e.StaffByCageId)
-                .ValueGeneratedNever()
-                .HasColumnName("StaffByCageID");
+            entity.Property(e => e.StaffByCageId).HasColumnName("StaffByCageID");
             entity.Property(e => e.AssignedDate).HasColumnType("datetime");
             entity.Property(e => e.CageId).HasColumnName("CageID");
             entity.Property(e => e.StaffId).HasColumnName("StaffID");
@@ -235,6 +222,23 @@ public partial class MyFarmContext : DbContext
             entity.HasOne(d => d.Staff).WithMany(p => p.StaffByCages)
                 .HasForeignKey(d => d.StaffId)
                 .HasConstraintName("FK_StaffByCage_Staff");
+        });
+
+        modelBuilder.Entity<Sysdiagram>(entity =>
+        {
+            entity.HasKey(e => e.DiagramId);
+
+            entity.ToTable("sysdiagrams");
+
+            entity.HasIndex(e => new { e.PrincipalId, e.Name }, "UK_principal_name").IsUnique();
+
+            entity.Property(e => e.DiagramId).HasColumnName("diagram_id");
+            entity.Property(e => e.Definition).HasColumnName("definition");
+            entity.Property(e => e.Name)
+                .HasMaxLength(128)
+                .HasColumnName("name");
+            entity.Property(e => e.PrincipalId).HasColumnName("principal_id");
+            entity.Property(e => e.Version).HasColumnName("version");
         });
 
         OnModelCreatingPartial(modelBuilder);

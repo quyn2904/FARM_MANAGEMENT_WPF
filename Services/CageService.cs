@@ -30,5 +30,16 @@ namespace Services
         {
             return this.unitOfWork.CageRepository.Get().ToList();
         }
+
+        public Cage GetCageById(int id)
+        {
+            return this.unitOfWork.CageRepository.GetById(id);
+        }
+
+        public void AddNewCage(Cage cage) 
+        {
+            this.unitOfWork.CageRepository.Insert(cage);
+            this.unitOfWork.SaveChanges();
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BussinessObjects;
+using Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,11 @@ namespace FARM_MANAGEMENT_WPF
     /// </summary>
     public partial class AddEditCageWindow : Window
     {
+        private CageService _cageService;
         public AddEditCageWindow()
         {
             InitializeComponent();
+            _cageService = CageService.GetInstance();
         }
 
        
@@ -34,7 +38,16 @@ namespace FARM_MANAGEMENT_WPF
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-           
+           if (ValidateInput())
+           {
+                Cage newCage = new Cage()
+                {
+                    Capacity = int.Parse(txtCapacity.Text),
+                    Status = cboStatus.SelectionBoxItem.ToString(),
+                };
+                this._cageService.AddNewCage(newCage);
+                MessageBox.Show("Add New Cage Successfully");
+           }
         }
 
         private bool ValidateInput()

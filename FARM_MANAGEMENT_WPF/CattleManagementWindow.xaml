@@ -99,7 +99,7 @@
                       Margin="10,0"
                       SelectionChanged="cboCage_SelectionChanged"
                       SelectedIndex="0">
-                <ComboBoxItem Content="Tất cả chuồng"/>
+                <!--<ComboBoxItem Content="Tất cả chuồng"/>-->
             </ComboBox>
 
             <!-- Filter by Health Status -->
@@ -134,10 +134,10 @@
                   RowHeight="50">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Mã Gà" 
-                                  Binding="{Binding CattleID}"
+                                  Binding="{Binding CattleId}"
                                   Width="80"/>
                 <DataGridTextColumn Header="Chuồng" 
-                                  Binding="{Binding CageID}"
+                                  Binding="{Binding CageId}"
                                   Width="80"/>
                 <DataGridTextColumn Header="Tuổi (ngày)" 
                                   Binding="{Binding Age}"

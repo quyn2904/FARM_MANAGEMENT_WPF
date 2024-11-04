@@ -1,22 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\FPT\\Ki5\\PRN212\\2tr5\\MyFarm\\",
+  "WorkspaceRootPath": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{437F1543-88F6-42AA-9E88-380CDFA14091}|FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF.csproj|d:\\fpt\\ki5\\prn212\\2tr5\\myfarm\\farm_management_wpf\\addeditcattlewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{437F1543-88F6-42AA-9E88-380CDFA14091}|FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF.csproj|solutionrelative:farm_management_wpf\\addeditcattlewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{437F1543-88F6-42AA-9E88-380CDFA14091}|FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF.csproj|d:\\fpt\\ki5\\prn212\\2tr5\\farm_management_wpf\\farm_management_wpf\\cattlemanagementwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{437F1543-88F6-42AA-9E88-380CDFA14091}|FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF.csproj|solutionrelative:farm_management_wpf\\cattlemanagementwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3BA462DB-9287-4AB9-B9A2-236FD31A5BB9}|BussinessObjects\\BussinessObjects.csproj|d:\\fpt\\ki5\\prn212\\2tr5\\myfarm\\bussinessobjects\\cage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3BA462DB-9287-4AB9-B9A2-236FD31A5BB9}|BussinessObjects\\BussinessObjects.csproj|solutionrelative:bussinessobjects\\cage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{437F1543-88F6-42AA-9E88-380CDFA14091}|FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF.csproj|d:\\fpt\\ki5\\prn212\\2tr5\\farm_management_wpf\\farm_management_wpf\\cattlemanagementwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{437F1543-88F6-42AA-9E88-380CDFA14091}|FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF.csproj|solutionrelative:farm_management_wpf\\cattlemanagementwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3BA462DB-9287-4AB9-B9A2-236FD31A5BB9}|BussinessObjects\\BussinessObjects.csproj|d:\\fpt\\ki5\\prn212\\2tr5\\myfarm\\bussinessobjects\\cattle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3BA462DB-9287-4AB9-B9A2-236FD31A5BB9}|BussinessObjects\\BussinessObjects.csproj|solutionrelative:bussinessobjects\\cattle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AB82BF13-BA6F-4FE0-BF9B-018DE86B76D6}|Services\\Services.csproj|d:\\fpt\\ki5\\prn212\\2tr5\\farm_management_wpf\\services\\cattleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB82BF13-BA6F-4FE0-BF9B-018DE86B76D6}|Services\\Services.csproj|solutionrelative:services\\cattleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AB82BF13-BA6F-4FE0-BF9B-018DE86B76D6}|Services\\Services.csproj|d:\\fpt\\ki5\\prn212\\2tr5\\myfarm\\services\\cageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AB82BF13-BA6F-4FE0-BF9B-018DE86B76D6}|Services\\Services.csproj|solutionrelative:services\\cageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AB82BF13-BA6F-4FE0-BF9B-018DE86B76D6}|Services\\Services.csproj|d:\\fpt\\ki5\\prn212\\2tr5\\farm_management_wpf\\services\\cattlebycageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB82BF13-BA6F-4FE0-BF9B-018DE86B76D6}|Services\\Services.csproj|solutionrelative:services\\cattlebycageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -25,59 +25,58 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 1244,
-          "SelectedChildIndex": 3,
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Cattle.cs",
-              "DocumentMoniker": "D:\\FPT\\Ki5\\PRN212\\2tr5\\MyFarm\\BussinessObjects\\Cattle.cs",
-              "RelativeDocumentMoniker": "BussinessObjects\\Cattle.cs",
-              "ToolTip": "D:\\FPT\\Ki5\\PRN212\\2tr5\\MyFarm\\BussinessObjects\\Cattle.cs",
-              "RelativeToolTip": "BussinessObjects\\Cattle.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T10:45:54.047Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Cage.cs",
-              "DocumentMoniker": "D:\\FPT\\Ki5\\PRN212\\2tr5\\MyFarm\\BussinessObjects\\Cage.cs",
-              "RelativeDocumentMoniker": "BussinessObjects\\Cage.cs",
-              "ToolTip": "D:\\FPT\\Ki5\\PRN212\\2tr5\\MyFarm\\BussinessObjects\\Cage.cs",
-              "RelativeToolTip": "BussinessObjects\\Cage.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T10:44:23.057Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CageService.cs",
-              "DocumentMoniker": "D:\\FPT\\Ki5\\PRN212\\2tr5\\MyFarm\\Services\\CageService.cs",
-              "RelativeDocumentMoniker": "Services\\CageService.cs",
-              "ToolTip": "D:\\FPT\\Ki5\\PRN212\\2tr5\\MyFarm\\Services\\CageService.cs",
-              "RelativeToolTip": "Services\\CageService.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAxwB4AAABBAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T10:34:24.753Z",
+              "Title": "CattleManagementWindow.xaml",
+              "DocumentMoniker": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF\\CattleManagementWindow.xaml",
+              "RelativeDocumentMoniker": "FARM_MANAGEMENT_WPF\\CattleManagementWindow.xaml",
+              "ToolTip": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF\\CattleManagementWindow.xaml",
+              "RelativeToolTip": "FARM_MANAGEMENT_WPF\\CattleManagementWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-04T04:36:59.29Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AddEditCattleWindow.xaml.cs",
-              "DocumentMoniker": "D:\\FPT\\Ki5\\PRN212\\2tr5\\MyFarm\\FARM_MANAGEMENT_WPF\\AddEditCattleWindow.xaml.cs",
-              "RelativeDocumentMoniker": "FARM_MANAGEMENT_WPF\\AddEditCattleWindow.xaml.cs",
-              "ToolTip": "D:\\FPT\\Ki5\\PRN212\\2tr5\\MyFarm\\FARM_MANAGEMENT_WPF\\AddEditCattleWindow.xaml.cs",
-              "RelativeToolTip": "FARM_MANAGEMENT_WPF\\AddEditCattleWindow.xaml.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAgwDkAAAAJAAAAAAAAAA==",
+              "Title": "CattleManagementWindow.xaml.cs",
+              "DocumentMoniker": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF\\CattleManagementWindow.xaml.cs",
+              "RelativeDocumentMoniker": "FARM_MANAGEMENT_WPF\\CattleManagementWindow.xaml.cs",
+              "ToolTip": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF\\CattleManagementWindow.xaml.cs",
+              "RelativeToolTip": "FARM_MANAGEMENT_WPF\\CattleManagementWindow.xaml.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAA/wF4AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T10:33:07.692Z",
+              "WhenOpened": "2024-11-04T04:32:59.62Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CattleByCageService.cs",
+              "DocumentMoniker": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\Services\\CattleByCageService.cs",
+              "RelativeDocumentMoniker": "Services\\CattleByCageService.cs",
+              "ToolTip": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\Services\\CattleByCageService.cs",
+              "RelativeToolTip": "Services\\CattleByCageService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-04T04:15:53.091Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CattleService.cs",
+              "DocumentMoniker": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\Services\\CattleService.cs",
+              "RelativeDocumentMoniker": "Services\\CattleService.cs",
+              "ToolTip": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\Services\\CattleService.cs",
+              "RelativeToolTip": "Services\\CattleService.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAqwDMAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-04T04:06:11.492Z",
               "EditorCaption": ""
             }
           ]

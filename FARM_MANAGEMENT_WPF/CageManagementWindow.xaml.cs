@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Services;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -20,15 +21,18 @@ namespace FARM_MANAGEMENT_WPF
     /// </summary>
     public partial class CageManagementWindow : Window
     {
-
+        private CageService _cageService;
         public CageManagementWindow()
         {
             InitializeComponent();
+            _cageService = CageService.GetInstance();
+            LoadCages();
         }
 
         private void LoadCages()
         {
-            
+            var cages = this._cageService.GetAllCage();
+            dgCages.ItemsSource = cages;
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
@@ -64,9 +68,5 @@ namespace FARM_MANAGEMENT_WPF
         {
             
         }
-
-
-
-
     }
 }

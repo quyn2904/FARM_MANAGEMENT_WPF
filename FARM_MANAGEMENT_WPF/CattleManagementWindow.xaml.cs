@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BussinessObjects;
+using Services;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -20,19 +22,30 @@ namespace FARM_MANAGEMENT_WPF
     /// </summary>
     public partial class CattleManagementWindow : Window
     {
+        private CattleService _cattleService;
+        private CageService _cageService;
         public CattleManagementWindow()
         {
             InitializeComponent();
+            _cattleService = CattleService.GetInstance();
+            _cageService = CageService.GetInstance();
+            LoadCages();
+            LoadCattles();
+
         }
 
         private void LoadCages()
         {
-            
+            var cages = _cageService.GetAllCage();
+            cboCage.ItemsSource = cages;
+            cboCage.DisplayMemberPath = "CageId";
+            cboCage.SelectedValuePath = "CageId";
         }
 
         private void LoadCattles()
         {
-            
+            var cattles = _cattleService.GetCattles();
+            dgCattle.ItemsSource = cattles;
         }
 
        
@@ -54,15 +67,16 @@ namespace FARM_MANAGEMENT_WPF
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
-        {
-           
+        {   
+            var editWindow = new AddEditCattleWindow(dgCattle.SelectedItem as Cattle);
+            editWindow.ShowDialog();
         }
 
         private void btnFeed_Click(object sender, RoutedEventArgs e)
         {
 
-               var feedWindow = new CattleFeedingWindow();
-               feedWindow.ShowDialog();
+            var feedWindow = new CattleFeedingWindow();
+            feedWindow.ShowDialog();
             
         }
 
@@ -77,7 +91,8 @@ namespace FARM_MANAGEMENT_WPF
         }
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            
+            this._cattleService.RemoveCattle(dgCattle.SelectedItem as Cattle);
+            LoadCattles();
         }
 
         private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)

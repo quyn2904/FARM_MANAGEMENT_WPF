@@ -109,7 +109,7 @@
           RowHeight="50">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Mã Chuồng" 
-                          Binding="{Binding CageID}"
+                          Binding="{Binding CageId}"    
                           Width="100"/>
                 <DataGridTextColumn Header="Vị trí" 
                           Binding="{Binding Location}"

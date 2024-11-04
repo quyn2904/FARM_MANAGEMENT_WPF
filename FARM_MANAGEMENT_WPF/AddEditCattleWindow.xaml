@@ -88,7 +88,7 @@
                         <Setter Property="CornerRadius" Value="5"/>
                     </Style>
                 </ComboBox.Resources>
-                <ComboBoxItem Content="Khỏe mạnh"/>
+                <ComboBoxItem Content="Khỏe mạnh" />
                 <ComboBoxItem Content="Bệnh"/>
                 <ComboBoxItem Content="Theo dõi"/>
             </ComboBox>
@@ -125,7 +125,7 @@
                     Background="#4A6741"
                     Foreground="White"
                     BorderThickness="0"
-                    Click="btnSave_Click">
+                    Click="btnSave_Click" VerticalAlignment="Top">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>

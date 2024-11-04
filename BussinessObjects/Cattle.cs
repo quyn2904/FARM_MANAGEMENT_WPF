@@ -13,6 +13,8 @@ public partial class Cattle
 
     public string? HealthStatus { get; set; }
 
+    public bool? Status { get; set; }
+
     public virtual ICollection<CattleByCage> CattleByCages { get; set; } = new List<CattleByCage>();
 
     public virtual ICollection<CattleDrug> CattleDrugs { get; set; } = new List<CattleDrug>();

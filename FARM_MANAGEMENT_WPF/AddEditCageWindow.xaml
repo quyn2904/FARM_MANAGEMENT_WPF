@@ -72,9 +72,8 @@
                         <Setter Property="CornerRadius" Value="5"/>
                     </Style>
                 </ComboBox.Resources>
-                <ComboBoxItem Content="Còn trống"/>
-                <ComboBoxItem Content="Đã đầy"/>
-                <ComboBoxItem Content="Đang bảo trì"/>
+                <ComboBoxItem Content="active"/>
+                <ComboBoxItem Content="inactive"/>
             </ComboBox>
         </StackPanel>
 

@@ -22,17 +22,48 @@ namespace FARM_MANAGEMENT_WPF
     public partial class AddEditCattleWindow : Window
     {
         private CageService _cageService;
+        private CattleService _cattleService;
+        private CattleByCageService _cattleByCageService;
+        private Cattle cattle;
+        private Cage cage;
         public AddEditCattleWindow()
         {
             InitializeComponent();
             this._cageService = CageService.GetInstance();
+            this._cattleService = CattleService.GetInstance();
+            this._cattleByCageService = CattleByCageService.GetInstance();
             LoadCages();
+        }
+
+        public AddEditCattleWindow(Cattle catt)
+        {
+            InitializeComponent();
+            this._cageService = CageService.GetInstance();
+            this._cattleService = CattleService.GetInstance();
+            this._cattleByCageService = CattleByCageService.GetInstance();
+            LoadCages();
+            this.cattle = catt;
+            switch (catt.HealthStatus)
+            {
+                case "good":
+                    cboHealthStatus.SelectedIndex = 0;
+                    break;
+                case "bad":
+                    cboHealthStatus.SelectedIndex = 1;
+                    break;
+                case "monitor":
+                    cboHealthStatus.SelectedIndex = 2;
+                    break;
+            }
+            txtAge.Text = catt.Age.ToString();
+            txtWeight.Text = catt.Weight.ToString();
+            this.cage = _cageService.GetCageById(_cattleByCageService.GetCurrentCage(this.cattle.CattleId).CageId);
+            cboCage.SelectedValue = this.cage.CageId;
         }
 
         private void LoadCages()
         {
             List<Cage> cages = _cageService.GetAllCage();
-            MessageBox.Show(cages.Count().ToString());
             cboCage.ItemsSource = cages;
             cboCage.DisplayMemberPath = "CageId";
             cboCage.SelectedValuePath = "CageId";
@@ -45,13 +76,66 @@ namespace FARM_MANAGEMENT_WPF
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            ValidateInput();
-            var cattle = new Cattle()
+            if (ValidateInput())
             {
-                Age = int.Parse(txtAge.Text),
-                Weight = decimal.Parse(txtWeight.Text),
-                
-            };
+                Cage cage = this._cageService.GetCageById(int.Parse(cboCage.SelectedValue.ToString()));
+                string healthstatus = "good";
+                if (cboHealthStatus.SelectedItem is ComboBoxItem selectedItem)
+                {
+                    switch (selectedItem.Content.ToString())
+                    {
+                        case "Khỏe mạnh":
+                            healthstatus = "good";
+                            break;
+                        case "Bệnh":
+                            healthstatus = "bad";
+                            break;
+                        case "Theo dõi":
+                            healthstatus = "monitor";
+                            break;
+                    }
+                }
+
+                if (this.cattle is null)
+                {
+                    this.cattle = new Cattle()
+                    {
+                        Age = int.Parse(txtAge.Text),
+                        Weight = decimal.Parse(txtWeight.Text),
+                        HealthStatus = healthstatus,
+                    };
+                    this._cattleService.AddNewCattle(cattle);
+                    var cattleByCage = new CattleByCage() { CageId = cage.CageId, CattleId = cattle.CattleId, StartingTimestamp = DateTime.Now };
+                    this._cattleByCageService.AddNewCattleByCage(cattleByCage);
+                    MessageBox.Show("Add new Chicken Successfully");
+                    ResetInput();
+                }
+                else
+                {
+                    this.cattle.Age = int.Parse(txtAge.Text);
+                    this.cattle.Weight = decimal.Parse(txtWeight.Text);
+                    this.cattle.HealthStatus = healthstatus;
+                    this._cattleService.EditCattle(cattle);
+                    if (this.cage.CageId != int.Parse(cboCage.SelectedValue.ToString()))
+                    {
+                        var currentCattleByCage = this._cattleByCageService.GetDefaultCage(this.cattle.CattleId);
+                        currentCattleByCage.EndingTimestamp = DateTime.Now;
+                        this._cattleByCageService.UpdateCattleByCage(currentCattleByCage);
+                        var cattleByCage = new CattleByCage() { CageId = cage.CageId, CattleId = cattle.CattleId, StartingTimestamp = DateTime.Now };
+                        this._cattleByCageService.AddNewCattleByCage(cattleByCage);
+                    }
+                    MessageBox.Show("Edit Chicken Successfully");
+
+                }
+            }
+        }
+
+        private void ResetInput()
+        {
+            cboCage.SelectedItem = null;
+            txtAge.Text = string.Empty;
+            txtWeight.Text = string.Empty;
+            cboHealthStatus.SelectedItem = null;
         }
 
         private bool ValidateInput()
