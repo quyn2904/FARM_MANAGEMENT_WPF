@@ -54,10 +54,10 @@
                     Padding="10">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <TextBox Grid.Column="1"
+                    <TextBox Grid.Column="0"
                              x:Name="txtSearch"
                              BorderThickness="0"
                              VerticalAlignment="Center"
@@ -88,6 +88,16 @@
                             </Style>
                         </TextBox.Style>
                     </TextBox>
+                    
+                    <Button Grid.Column="1"
+                            Content="Tìm kiếm"
+                            x:Name="btnSearch"
+                            Width="80"
+                            Height="30"
+                            Background="#4A6741"
+                            Foreground="White"
+                            BorderThickness="0"
+                            Click="btnSearch_Click"/>
                 </Grid>
             </Border>
 

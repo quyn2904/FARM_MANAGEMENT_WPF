@@ -69,5 +69,10 @@ namespace Repositories
             dbSet.Attach(entity);
             context.Entry(entity).State = EntityState.Modified;
         }
+
+        public virtual TEntity GetByName(string name)
+        {
+            return dbSet.FirstOrDefault(e => EF.Property<string>(e, "Name").Equals(name));
+        }
     }
 }

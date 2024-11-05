@@ -56,5 +56,10 @@ namespace Services
         {
             return this.unitOfWork.FoodRepository.GetById(id);
         }
+
+        public Food GetFoodByName (string name)
+        {
+            return this.unitOfWork.FoodRepository.GetByName(name);
+        }
     }
 }

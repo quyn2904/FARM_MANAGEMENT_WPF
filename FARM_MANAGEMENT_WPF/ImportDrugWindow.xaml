@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FARM_MANAGEMENT_WPF"
         mc:Ignorable="d"
        Title="Nhập Kho Thuốc" 
-        Height="400" Width="500"
+        Height="553" Width="500"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
 
@@ -78,12 +78,13 @@
         <!-- Buttons -->
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="94*"/>
+                <ColumnDefinition Width="31*"/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="1"
+            <Button Grid.Column="2"
                     Content="Hủy"
                     Width="100"
                     Height="40"
@@ -93,7 +94,7 @@
                     BorderThickness="0"
                     Click="btnCancel_Click"/>
 
-            <Button Grid.Column="2"
+            <Button Grid.Column="3"
                     Content="Nhập kho"
                     Width="100"
                     Height="40"

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BussinessObjects;
+using Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,17 +21,33 @@ namespace FARM_MANAGEMENT_WPF
     /// </summary>
     public partial class DrugManagementWindow : Window
     {
+        private readonly DrugService _drugService;
+
         public DrugManagementWindow()
         {
             InitializeComponent();
+            _drugService = DrugService.GetInstance();
+            LoadDrugs();
+            cboType.SelectionChanged += cboType_SelectionChanged;
         }
 
         private void LoadDrugs()
         {
-            
+            try
+            {
+                var drugs = _drugService.GetAll();
+                if (drugs == null)
+                {
+                    MessageBox.Show("Không thể tải danh sách thuốc", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                dgDrug.ItemsSource = drugs;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
-
-        
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
@@ -42,24 +60,24 @@ namespace FARM_MANAGEMENT_WPF
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
-          
-                //var editWindow = new AddEditDrugWindow(drug);
-                //if (editWindow.ShowDialog() == true)
-                //{
-                //    LoadDrugs();
-                //}
-            
+
+            var editWindow = new AddEditDrugWindow(dgDrug.SelectedItem as Drug);
+            if (editWindow.ShowDialog() == true)
+            {
+                LoadDrugs();
+            }
+
         }
 
         private void btnImport_Click(object sender, RoutedEventArgs e)
         {
 
-                //var importWindow = new ImportDrugWindow(drug);
-                //if (importWindow.ShowDialog() == true)
-                //{
-                //    LoadDrugs();
-                //}
-            
+            var importWindow = new ImportDrugWindow(dgDrug.SelectedItem as Drug);
+            if (importWindow.ShowDialog() == true)
+            {
+                LoadDrugs();
+            }
+
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
@@ -76,9 +94,57 @@ namespace FARM_MANAGEMENT_WPF
             this.Close();
         }
 
-        private void txtSearch_TextChanged(object sender, object e)
-        {
 
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            string searchQuery = txtSearch.Text;
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                var findDrug = _drugService.GetDrugByName(searchQuery);
+                if (findDrug != null)
+                {
+                    dgDrug.ItemsSource = new List<Drug> { findDrug };
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy thức ăn!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                    LoadDrugs();
+                }
+            }
+            else
+            {
+                LoadDrugs();
+            }
+        }
+
+        private void cboType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cboType.SelectedItem == null) return;
+            
+            string selectedType = ((ComboBoxItem)cboType.SelectedItem).Content.ToString();
+            var drugs = _drugService.GetAll();
+            
+            if (drugs == null)
+            {
+                MessageBox.Show("Không thể tải danh sách thuốc", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            switch (selectedType)
+            {
+                case "Vaccine":
+                    dgDrug.ItemsSource = drugs.Where(d => d.Type.ToLower() == "vaccine");
+                    break;
+                case "Kháng sinh":
+                    dgDrug.ItemsSource = drugs.Where(d => d.Type.ToLower() == "antibiotic");
+                    break;
+                case "Vitamin":
+                    dgDrug.ItemsSource = drugs.Where(d => d.Type.ToLower() == "vitamin");
+                    break;
+                default: // "Tất cả loại"
+                    dgDrug.ItemsSource = drugs;
+                    break;
+            }
         }
     }
 }

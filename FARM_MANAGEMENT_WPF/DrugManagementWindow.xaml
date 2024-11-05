@@ -46,23 +46,21 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <!-- Search Box -->
             <Border Background="White"
-                    BorderBrush="#E0E0E0"
-                    BorderThickness="1"
-                    CornerRadius="5"
-                    Padding="10">
+        BorderBrush="#E0E0E0"
+        BorderThickness="1"
+        CornerRadius="5"
+        Padding="10">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <TextBox Grid.Column="1"
-                             x:Name="txtSearch"
-                             BorderThickness="0"
-                             VerticalAlignment="Center"
-                             TextChanged="txtSearch_TextChanged"
-                             Background="Transparent">
+                    <TextBox Grid.Column="0"
+                 x:Name="txtSearch"
+                 BorderThickness="0"
+                 VerticalAlignment="Center"
+                 Background="Transparent">
                         <TextBox.Style>
                             <Style TargetType="TextBox">
                                 <Style.Triggers>
@@ -72,14 +70,14 @@
                                                 <ControlTemplate TargetType="TextBox">
                                                     <Grid>
                                                         <TextBox Text="{Binding Path=Text, 
-                                                         RelativeSource={RelativeSource TemplatedParent}, 
-                                                         Mode=TwoWay,
-                                                         UpdateSourceTrigger=PropertyChanged}"
-                                                         Background="Transparent"
-                                                         Panel.ZIndex="2"/>
+                                             RelativeSource={RelativeSource TemplatedParent}, 
+                                             Mode=TwoWay,
+                                             UpdateSourceTrigger=PropertyChanged}"
+                                             Background="Transparent"
+                                             Panel.ZIndex="2"/>
                                                         <TextBlock Text="Tìm kiếm theo tên thuốc..." 
-                                                         Foreground="Gray"
-                                                         Panel.ZIndex="1"/>
+                                             Foreground="Gray"
+                                             Panel.ZIndex="1"/>
                                                     </Grid>
                                                 </ControlTemplate>
                                             </Setter.Value>
@@ -89,6 +87,16 @@
                             </Style>
                         </TextBox.Style>
                     </TextBox>
+
+                    <Button Grid.Column="1"
+                Content="Tìm kiếm"
+                x:Name="btnSearch"
+                Width="80"
+                Height="30"
+                Background="#4A6741"
+                Foreground="White"
+                BorderThickness="0"
+                Click="btnSearch_Click"/>
                 </Grid>
             </Border>
 
@@ -123,21 +131,11 @@
                   BorderBrush="#E0E0E0"
                   RowHeight="50">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Mã" 
-                                  Binding="{Binding DrugID}"
-                                  Width="80"/>
-                <DataGridTextColumn Header="Tên thuốc" 
-                                  Binding="{Binding Name}"
-                                  Width="*"/>
-                <DataGridTextColumn Header="Loại" 
-                                  Binding="{Binding Type}"
-                                  Width="120"/>
-                <DataGridTextColumn Header="Số lượng tồn (ml)" 
-                                  Binding="{Binding Quantity}"
-                                  Width="120"/>
-                <DataGridTextColumn Header="Hướng dẫn sử dụng" 
-                                  Binding="{Binding UseInstructions}"
-                                  Width="200"/>
+                <DataGridTextColumn Header="Mã" Binding="{Binding DrugID}" />
+                <DataGridTextColumn Header="Tên thuốc" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Loại" Binding="{Binding Type}" />
+                <DataGridTextColumn Header="Số lượng tồn (ml)" Binding="{Binding Quantity}" />
+                <DataGridTextColumn Header="Hướng dẫn sử dụng" Binding="{Binding UsageInstructions}" />
                 <DataGridTemplateColumn Header="Thao tác" Width="250">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

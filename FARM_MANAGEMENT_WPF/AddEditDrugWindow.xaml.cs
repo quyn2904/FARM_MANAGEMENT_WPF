@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BussinessObjects;
+using Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,50 @@ namespace FARM_MANAGEMENT_WPF
     /// </summary>
     public partial class AddEditDrugWindow : Window
     {
+        private DrugService drugService;
+        private Drug drug;
         public AddEditDrugWindow()
         {
             InitializeComponent();
+            this.drugService = DrugService.GetInstance();
+            lblInitialQuantity.Text = "Số lượng ban đầu(ml)";
+            txtUseInstructions.Text = "Hướng dẫn sử dụng";
+
+        }
+
+        public AddEditDrugWindow(Drug drug)
+        {
+            InitializeComponent();
+            this.drugService = DrugService.GetInstance();
+            this.drug = drug;
+            lblInitialQuantity.Text = "Số lượng ban đầu(ml)";
+            txtUseInstructions.Text = "Hướng dẫn sử dụng";
+            txtInitialQuantity.IsEnabled = false;
+            txtName.Text = drug.Name;
+            txtInitialQuantity.Text = drug.Quantity.ToString();
+            switch (drug.Type)
+            {
+                case "vaccine":
+                    {
+                        cboType.Text = "Vaccine";
+                        break;
+                    }
+                case "antibiotic":
+                    {
+                        cboType.Text = "Kháng sinh";
+                        break;
+                    }
+                case "vitamin":
+                    {
+                        cboType.Text = "Vitamin";
+                        break;
+                    }
+                default:
+                    {
+                        cboType.Text = "";
+                        break;
+                    }
+            }
         }
 
 

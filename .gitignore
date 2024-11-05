@@ -133,3 +133,9 @@ $RECYCLE.BIN/
 .DS_Store
 
 _NCrunch*
+.vs/
+*.vscode/
+*.user
+*.suo
+*.sln.docstates
+*.cache

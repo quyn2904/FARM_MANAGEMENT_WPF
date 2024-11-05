@@ -21,21 +21,37 @@ namespace FARM_MANAGEMENT_WPF
     /// </summary>
     public partial class FoodManagementWindow : Window
     {
-        private FoodService _foorService;
+        private FoodService _foodService;
         public FoodManagementWindow()
         {
             InitializeComponent();
-            this._foorService = FoodService.GetInstance();
+            this._foodService = FoodService.GetInstance();
             LoadFoods();
+
+            //// Đăng ký sự kiện sau khi dữ liệu đã tải
+            //cboType.SelectionChanged += cboType_SelectionChanged;
         }
+
 
         private void LoadFoods()
         {
-            var foods = _foorService.GetAll();
-            dgFood.ItemsSource = foods;
+            try
+            {
+                var drugs = _foodService.GetAll();
+                if (drugs == null)
+                {
+                    MessageBox.Show("Không thể tải danh sách thức ăn", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                dgFood.ItemsSource = drugs;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
-        
+
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
@@ -76,7 +92,55 @@ namespace FARM_MANAGEMENT_WPF
 
         private void cboType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //if (cboType.SelectedItem == null) return;
 
+            //string selectedType = ((ComboBoxItem)cboType.SelectedItem).Content.ToString().ToLower();
+            //var foods = _foodService.GetAll();
+
+            //if (foods == null)
+            //{
+            //    MessageBox.Show("Không thể tải danh sách thức ăn", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+            //    return;
+            //}
+
+            //switch (selectedType)
+            //{
+            //    case "thức ăn con":
+            //        dgFood.ItemsSource = foods.Where(d => d.Type.ToLower() == "child");
+            //        break;
+            //    case "thức ăn tăng trưởng":
+            //        dgFood.ItemsSource = foods.Where(d => d.Type.ToLower() == "growth");
+            //        break;
+            //    case "thức ăn sinh sản":
+            //        dgFood.ItemsSource = foods.Where(d => d.Type.ToLower() == "breeding");
+            //        break;
+            //    default: // "Tất cả loại"
+            //        dgFood.ItemsSource = foods;
+            //        break;
+            //}
+        }
+
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            string searchQuery = txtSearch.Text;
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                var findFood = _foodService.GetFoodByName(searchQuery);
+                if (findFood != null)
+                {
+                    dgFood.ItemsSource = new List<Food> { findFood };
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy thức ăn!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                    LoadFoods();
+                }
+            }
+            else
+            {
+                LoadFoods();
+            }
         }
     }
 }
