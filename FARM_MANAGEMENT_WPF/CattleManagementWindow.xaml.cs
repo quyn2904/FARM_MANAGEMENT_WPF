@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,11 +25,13 @@ namespace FARM_MANAGEMENT_WPF
     {
         private CattleService _cattleService;
         private CageService _cageService;
+        private CattleByCageService _cattleByCageService;
         public CattleManagementWindow()
         {
             InitializeComponent();
             _cattleService = CattleService.GetInstance();
             _cageService = CageService.GetInstance();
+            _cattleByCageService = CattleByCageService.GetInstance();
             LoadCages();
             LoadCattles();
 
@@ -45,10 +48,42 @@ namespace FARM_MANAGEMENT_WPF
         private void LoadCattles()
         {
             var cattles = _cattleService.GetCattles();
-            dgCattle.ItemsSource = cattles;
+            var cattleByCages = _cattleByCageService.GetAllCattleByCages();
+            var mergeCattle = from cattle in cattles
+                              join cattleByCage in cattleByCages
+                              on cattle.CattleId equals cattleByCage.CattleId
+                              select new
+                              {
+                                  cattle.CattleId,
+                                  cattle.Status,
+                                  cattle.Age,
+                                  cattle.Weight,
+                                  cattle.HealthStatus,
+                                  cattleByCage.CageId,
+                              };
+            dgCattle.ItemsSource = mergeCattle;
         }
 
-       
+        private void LoadCattlesByCage(int cageId)
+        {
+            var cattles = _cattleService.GetCattles();
+            var cattleByCages = _cattleByCageService.GetAllCattleByCages();
+            IEnumerable<CattleWithCageId> mergeCattle = (IEnumerable<CattleWithCageId>)(from cattle in cattles
+                              join cattleByCage in cattleByCages
+                              on cattle.CattleId equals cattleByCage.CattleId
+                              select new
+                              {
+                                  cattle.CattleId,
+                                  cattle.Status,
+                                  cattle.Age,
+                                  cattle.Weight,
+                                  cattle.HealthStatus,
+                                  cattleByCage.CageId,
+                              });
+            dgCattle.ItemsSource = mergeCattle.Where(c => c.CageId == cageId);
+        }
+
+
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
@@ -67,8 +102,22 @@ namespace FARM_MANAGEMENT_WPF
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
-        {   
-            var editWindow = new AddEditCattleWindow(dgCattle.SelectedItem as Cattle);
+        {
+            Type type = dgCattle.SelectedItem.GetType();  // Lấy kiểu của đối tượng
+            PropertyInfo[] properties = type.GetProperties();
+            foreach (PropertyInfo property in properties) 
+            {
+                Console.WriteLine($"{property.Name}: {property.GetValue(dgCattle.SelectedItem)}");
+            }
+            var catt = new Cattle()
+            {
+                Weight = (dgCattle.SelectedItem as CattleWithCageId).Weight,
+                Age = (dgCattle.SelectedItem as CattleWithCageId).Age,
+                CattleId = (dgCattle.SelectedItem as CattleWithCageId).CattleId,
+                HealthStatus = (dgCattle.SelectedItem as CattleWithCageId).HealthStatus,
+                Status = (dgCattle.SelectedItem as CattleWithCageId).Status,
+            };
+            var editWindow = new AddEditCattleWindow(catt);
             editWindow.ShowDialog();
         }
 
@@ -77,7 +126,7 @@ namespace FARM_MANAGEMENT_WPF
 
             var feedWindow = new CattleFeedingWindow();
             feedWindow.ShowDialog();
-            
+
         }
 
         private void btnMedicine_Click(object sender, RoutedEventArgs e)
@@ -102,7 +151,16 @@ namespace FARM_MANAGEMENT_WPF
 
         private void cboCage_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            try
+            {
+                if (cboCage.SelectedValue is not null)
+                {
+                    LoadCattlesByCage(int.Parse(cboCage.SelectedValue.ToString()));
+                }
+            }
+            catch
+            {
+            }
         }
     }
 }

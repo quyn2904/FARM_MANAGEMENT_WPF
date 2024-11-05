@@ -43,6 +43,7 @@ namespace FARM_MANAGEMENT_WPF
             this._cattleByCageService = CattleByCageService.GetInstance();
             LoadCages();
             this.cattle = catt;
+
             switch (catt.HealthStatus)
             {
                 case "good":

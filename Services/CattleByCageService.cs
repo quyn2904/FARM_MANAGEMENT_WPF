@@ -58,5 +58,10 @@ namespace Services
             this.unitOfWork.CattleByCageRepository.Update(cattleByCage);
             this.unitOfWork.SaveChanges();
         }
+
+        public List<CattleByCage> GetAllCattleByCages()
+        {
+            return this.unitOfWork.CattleByCageRepository.Get(c => c.EndingTimestamp.Value == null).ToList();
+        }
     }
 }
