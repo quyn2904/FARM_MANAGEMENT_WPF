@@ -63,6 +63,9 @@ public partial class MyFarmContext : DbContext
         {
             entity.ToTable("Cage");
 
+            entity.Property(e => e.Location)
+                .HasMaxLength(100)
+                .IsUnicode(false);
             entity.Property(e => e.Status)
                 .HasMaxLength(20)
                 .IsUnicode(false);
@@ -85,10 +88,6 @@ public partial class MyFarmContext : DbContext
         modelBuilder.Entity<CattleByCage>(entity =>
         {
             entity.ToTable("CattleByCage");
-
-            entity.HasIndex(e => new { e.CattleId, e.CageId }, "UX_CattleByCage_CattleID_CageID")
-                .IsUnique()
-                .HasFillFactor(100);
 
             entity.Property(e => e.CattleByCageId).HasColumnName("CattleByCageID");
             entity.Property(e => e.CageId).HasColumnName("CageID");

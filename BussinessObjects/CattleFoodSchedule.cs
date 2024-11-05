@@ -7,9 +7,9 @@ public partial class CattleFoodSchedule
 {
     public int ScheduleId { get; set; }
 
-    public int? CattleId { get; set; }
+    public int CattleId { get; set; }
 
-    public int? FoodId { get; set; }
+    public int FoodId { get; set; }
 
     public string? FeedingTime { get; set; }
 

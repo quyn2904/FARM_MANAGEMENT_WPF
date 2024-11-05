@@ -11,6 +11,8 @@ public partial class Cage
 
     public string? Status { get; set; }
 
+    public string? Location { get; set; }
+
     public virtual ICollection<CattleByCage> CattleByCages { get; set; } = new List<CattleByCage>();
 
     public virtual ICollection<StaffByCage> StaffByCages { get; set; } = new List<StaffByCage>();

@@ -63,5 +63,20 @@ namespace Services
         {
             return this.unitOfWork.CattleByCageRepository.Get(c => c.EndingTimestamp.Value == null).ToList();
         }
+
+        public List<QuantityByCage> GetCurrentlyOccupiedCagesForEachCage()
+        {
+            return this.unitOfWork.CattleByCageRepository.Get(c => c.EndingTimestamp.Value == null).GroupBy(c => c.CageId).Select(g => new QuantityByCage()
+            {
+                CageId = g.Key,
+                Quantity = g.Count()
+            }).ToList();
+        }
+
+        public bool CheckCageAvailable(int cageId)
+        {
+            var currentQuantity = this.unitOfWork.CattleByCageRepository.Get(c => c.CageId == cageId && c.EndingTimestamp.Value == null).Count();
+            return this.unitOfWork.CageRepository.Get(c => c.CageId == cageId).FirstOrDefault().Capacity > currentQuantity;
+        }
     }
 }

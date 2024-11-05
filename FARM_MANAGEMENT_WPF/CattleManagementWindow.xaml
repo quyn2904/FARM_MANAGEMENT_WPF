@@ -134,19 +134,19 @@
                   RowHeight="50">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Mã Gà" 
-                                  Binding="{Binding CattleId}"
+                                  Binding="{Binding Cattle.CattleId}"
                                   Width="80"/>
                 <DataGridTextColumn Header="Chuồng" 
                                   Binding="{Binding CageId}"
                                   Width="80"/>
                 <DataGridTextColumn Header="Tuổi (ngày)" 
-                                  Binding="{Binding Age}"
+                                  Binding="{Binding Cattle.Age}"
                                   Width="100"/>
                 <DataGridTextColumn Header="Cân nặng (kg)" 
-                                  Binding="{Binding Weight}"
+                                  Binding="{Binding Cattle.Weight}"
                                   Width="100"/>
                 <DataGridTextColumn Header="Tình trạng" 
-                                  Binding="{Binding HealthStatus}"
+                                  Binding="{Binding Cattle.HealthStatus}"
                                   Width="120"/>
                 <DataGridTemplateColumn Header="Thao tác" Width="300">
                     <DataGridTemplateColumn.CellTemplate>

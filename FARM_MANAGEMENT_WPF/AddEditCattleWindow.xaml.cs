@@ -25,7 +25,7 @@ namespace FARM_MANAGEMENT_WPF
         private CattleService _cattleService;
         private CattleByCageService _cattleByCageService;
         private Cattle cattle;
-        private Cage cage;
+        private Cage cage; 
         public AddEditCattleWindow()
         {
             InitializeComponent();
@@ -58,7 +58,7 @@ namespace FARM_MANAGEMENT_WPF
             }
             txtAge.Text = catt.Age.ToString();
             txtWeight.Text = catt.Weight.ToString();
-            this.cage = _cageService.GetCageById(_cattleByCageService.GetCurrentCage(this.cattle.CattleId).CageId);
+            this.cage = _cageService.GetCageById(_cattleByCageService.GetDefaultCage(this.cattle.CattleId).CageId);
             cboCage.SelectedValue = this.cage.CageId;
         }
 
@@ -109,7 +109,7 @@ namespace FARM_MANAGEMENT_WPF
                     var cattleByCage = new CattleByCage() { CageId = cage.CageId, CattleId = cattle.CattleId, StartingTimestamp = DateTime.Now };
                     this._cattleByCageService.AddNewCattleByCage(cattleByCage);
                     MessageBox.Show("Add new Chicken Successfully");
-                    ResetInput();
+                    this.Close();
                 }
                 else
                 {
@@ -126,7 +126,7 @@ namespace FARM_MANAGEMENT_WPF
                         this._cattleByCageService.AddNewCattleByCage(cattleByCage);
                     }
                     MessageBox.Show("Edit Chicken Successfully");
-
+                    this.Close();
                 }
             }
         }
@@ -145,6 +145,14 @@ namespace FARM_MANAGEMENT_WPF
             if (cboCage.SelectedItem == null)
             {
                 MessageBox.Show("Vui lòng chọn chuồng!", "Thông báo",
+                              MessageBoxButton.OK, MessageBoxImage.Warning);
+                cboCage.Focus();
+                return false;
+            }
+
+            if (_cattleByCageService.CheckCageAvailable(int.Parse(cboCage.SelectedValue.ToString())) == false)
+            {
+                MessageBox.Show("Chuồng đã đầy!", "Thông báo",
                               MessageBoxButton.OK, MessageBoxImage.Warning);
                 cboCage.Focus();
                 return false;

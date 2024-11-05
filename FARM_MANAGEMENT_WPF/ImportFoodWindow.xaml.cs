@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BussinessObjects;
+using Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,16 @@ namespace FARM_MANAGEMENT_WPF
     /// </summary>
     public partial class ImportFoodWindow : Window
     {
-        public ImportFoodWindow()
+        private FoodService _foodService;
+        private Food food;
+
+        public ImportFoodWindow(Food food)
         {
             InitializeComponent();
+            this.food = food;
+            _foodService = FoodService.GetInstance();
+            txtFoodInfo.Text = food.Name + " - " + food.Type;
+            txtCurrentQuantity.Text = food.Quantity.ToString();
         }
         private void LoadFoodInfo()
         {
@@ -30,12 +39,24 @@ namespace FARM_MANAGEMENT_WPF
 
         private void btnImport_Click(object sender, RoutedEventArgs e)
         {
-           
+            if (ValidateInput())
+            {
+                if (MessageBox.Show("Bạn có chắc chắn muốn nhập thêm thức ăn này không?", "Xác nhận",
+                 MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                {
+                    int quantity = int.Parse(txtImportQuantity.Text);
+                    _foodService.ImportFood(food, quantity);
+                    MessageBox.Show("Nhập thêm thức ăn thành công!", "Thông báo",
+                        MessageBoxButton.OK, MessageBoxImage.Information);
+                    DialogResult = true;
+                    Close();
+                }
+            }
         }
 
         private bool ValidateInput()
         {
-            if (!double.TryParse(txtImportQuantity.Text, out double quantity) || quantity <= 0)
+            if (!int.TryParse(txtImportQuantity.Text, out int quantity) || quantity <= 0)
             {
                 MessageBox.Show("Số lượng nhập thêm phải là số dương!", "Thông báo",
                               MessageBoxButton.OK, MessageBoxImage.Warning);

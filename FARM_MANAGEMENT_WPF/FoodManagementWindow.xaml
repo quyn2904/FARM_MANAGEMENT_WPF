@@ -124,7 +124,7 @@
                   RowHeight="50">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Mã" 
-                                  Binding="{Binding FoodID}"
+                                  Binding="{Binding FoodId}"
                                   Width="80"/>
                 <DataGridTextColumn Header="Tên thức ăn" 
                                   Binding="{Binding Name}"
@@ -150,13 +150,6 @@
                                         Click="btnImport_Click"
                                         Width="90" Height="35"
                                         Background="#1976D2"
-                                        Foreground="White"
-                                        BorderThickness="0"
-                                        Margin="5"/>
-                                <Button Content="Xóa"
-                                        Click="btnDelete_Click"
-                                        Width="70" Height="35"
-                                        Background="#d32f2f"
                                         Foreground="White"
                                         BorderThickness="0"
                                         Margin="5"/>

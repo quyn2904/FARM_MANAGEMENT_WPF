@@ -23,13 +23,23 @@ namespace FARM_MANAGEMENT_WPF
     public partial class AddEditCageWindow : Window
     {
         private CageService _cageService;
+        private Cage cage;
         public AddEditCageWindow()
         {
             InitializeComponent();
             _cageService = CageService.GetInstance();
         }
 
-       
+        public AddEditCageWindow(Cage cage)
+        {
+            InitializeComponent();
+            _cageService = CageService.GetInstance();
+            this.cage = cage;
+            //txtLocation.Text = cage.Location;
+            txtCapacity.Text = cage.Capacity.ToString();
+            cboStatus.Text = cage.Status;
+            
+        }
 
         private void LoadCageData()
         {
@@ -40,13 +50,27 @@ namespace FARM_MANAGEMENT_WPF
         {
            if (ValidateInput())
            {
-                Cage newCage = new Cage()
+                if (this.cage is null)
                 {
-                    Capacity = int.Parse(txtCapacity.Text),
-                    Status = cboStatus.SelectionBoxItem.ToString(),
-                };
-                this._cageService.AddNewCage(newCage);
-                MessageBox.Show("Add New Cage Successfully");
+                    this.cage = new Cage()
+                    {
+                        Location = txtLocation.Text,
+                        Capacity = int.Parse(txtCapacity.Text),
+                        Status = cboStatus.SelectionBoxItem.ToString(),
+                    };                    
+                    this._cageService.AddNewCage(this.cage);
+                    MessageBox.Show("Add New Cage Successfully");
+                    this.Close();
+                }
+                else
+                {
+                    this.cage.Location = txtLocation.Text;
+                    this.cage.Capacity = int.Parse(txtCapacity.Text);
+                    this.cage.Status = cboStatus.SelectionBoxItem.ToString();
+                    this._cageService.UpdateCage(this.cage);
+                    MessageBox.Show("Update Cage Successfully");
+                    this.Close();
+                }
            }
         }
 

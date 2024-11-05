@@ -6,10 +6,15 @@ using System.Threading.Tasks;
 
 namespace BussinessObjects
 {
-    public class CattleWithCageId
+    public class QuantityByCage
     {
-        public Cattle Cattle { get; set; }
-
         public int CageId { get; set; }
+        public int Quantity { get; set; }
+    }
+
+    public class CageWithQuantity
+    {
+        public Cage Cage { get; set; }
+        public int Quantity { get; set; }
     }
 }

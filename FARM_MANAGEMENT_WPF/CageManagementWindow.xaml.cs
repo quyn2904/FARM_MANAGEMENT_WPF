@@ -1,4 +1,5 @@
-﻿using Services;
+﻿using BussinessObjects;
+using Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,17 +23,31 @@ namespace FARM_MANAGEMENT_WPF
     public partial class CageManagementWindow : Window
     {
         private CageService _cageService;
+        private CattleByCageService _cattleByCageService;
         public CageManagementWindow()
         {
             InitializeComponent();
             _cageService = CageService.GetInstance();
+            _cattleByCageService = CattleByCageService.GetInstance();
             LoadCages();
         }
 
         private void LoadCages()
         {
             var cages = this._cageService.GetAllCage();
-            dgCages.ItemsSource = cages;
+            var quantityByCages = this._cattleByCageService.GetCurrentlyOccupiedCagesForEachCage();
+
+            var gridData = from cage in cages
+                           join quantityByCage in quantityByCages
+                           on cage.CageId equals quantityByCage.CageId into grouped
+                           from quantity in grouped.DefaultIfEmpty() // Thực hiện left join
+                           select new CageWithQuantity()
+                           {
+                               Cage = cage,
+                               Quantity = quantity?.Quantity ?? 0 // Nếu không có dữ liệu, mặc định là 0
+                           };
+
+            dgCages.ItemsSource = gridData.ToList(); // Đảm bảo convert thành List
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
@@ -53,20 +68,10 @@ namespace FARM_MANAGEMENT_WPF
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
-            //var cage = (sender as Button).DataContext as Cage;
-            //if (cage != null)
-            //{
-            //    var editWindow = new AddEditCageWindow(cage);
-            //    if (editWindow.ShowDialog() == true)
-            //    {
-            //        LoadCages(); // Reload sau khi sửa
-            //    }
-            //}
-        }
-
-        private void btnDelete_Click(object sender, RoutedEventArgs e)
-        {
-            
+            var cageWithQuantity = dgCages.SelectedItem as CageWithQuantity;
+            var editWindow = new AddEditCageWindow(cageWithQuantity.Cage);
+            editWindow.ShowDialog();
+            LoadCages();
         }
     }
 }

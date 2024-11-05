@@ -41,5 +41,11 @@ namespace Services
             this.unitOfWork.CageRepository.Insert(cage);
             this.unitOfWork.SaveChanges();
         }
+
+        public void UpdateCage(Cage cage)
+        {
+            this.unitOfWork.CageRepository.Update(cage);
+            this.unitOfWork.SaveChanges();
+        }
     }
 }

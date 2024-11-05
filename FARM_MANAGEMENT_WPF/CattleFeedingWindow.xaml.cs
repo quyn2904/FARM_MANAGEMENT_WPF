@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BussinessObjects;
+using Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,29 +21,75 @@ namespace FARM_MANAGEMENT_WPF
     /// </summary>
     public partial class CattleFeedingWindow : Window
     {
-        public CattleFeedingWindow()
+        private Cattle cattle;
+        private Cage cage;
+        private CattleByCageService _cattleByCageService;
+        private CattleFoodScheduleService _cattleFoodScheduleService;
+        private FoodService _foodService;
+        private CageService _cageService;
+        public CattleFeedingWindow(Cattle cattle)
         {
             InitializeComponent();
+            _cattleByCageService = CattleByCageService.GetInstance();
+            _cattleFoodScheduleService = CattleFoodScheduleService.GetInstance();
+            _cageService = CageService.GetInstance();
+            _foodService = FoodService.GetInstance();
+            this.cattle = cattle;
+            var cageId = _cattleByCageService.GetDefaultCage(cattle.CattleId).CageId;
+            this.cage = _cageService.GetCageById(cageId);
+            txtCattleInfo.Text = $"Thông tin gà: {cattle.CattleId} - Chuồng: {cageId}";
+            LoadInitialData();
         }
 
         private void LoadInitialData()
         {
-            
+            LoadFoods();
+            LoadFeedingHistory();
         }
 
         private void LoadFoods()
         {
-            
+            var foods = _foodService.GetAll();
+            cboFood.ItemsSource = foods;
+            cboFood.DisplayMemberPath = "Name";
+            cboFood.SelectedValuePath = "FoodId";
         }
 
         private void LoadFeedingHistory()
         {
-            
+            var feedingHistories = _cattleFoodScheduleService.GetFeedingHistory(cattle.CattleId);
+            var feedingHistoriesWithFoodName = from FeedingHistory in feedingHistories
+                                               select new CattleFoodSchedule()
+                                               {
+                                                   CattleId = FeedingHistory.CattleId,
+                                                   FeedingTime = FeedingHistory.FeedingTime,
+                                                   FoodId = FeedingHistory.FoodId,
+                                                   Quantity = FeedingHistory.Quantity,
+                                                   ScheduleId = FeedingHistory.ScheduleId,
+                                                   Food = _foodService.GetFoodById(FeedingHistory.FoodId),
+                                                   Cattle = this.cattle,
+
+                                               };
+            dgFeedingHistory.ItemsSource = feedingHistoriesWithFoodName.ToList();
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-           
+            if (ValidateInput())
+            {
+                var CattleFoodSchedule = new CattleFoodSchedule
+                {
+                    CattleId = cattle.CattleId,
+                    FoodId = (int)cboFood.SelectedValue,
+                    Quantity = int.Parse(txtAmount.Text),
+                    FeedingTime = dpFeedingDate.SelectedDate.Value.ToString(),
+                };
+                this._cattleFoodScheduleService.AddFeedingHistory(CattleFoodSchedule);
+                LoadFeedingHistory();
+                MessageBox.Show("Thêm lịch sử cho ăn thành công!", "Thông báo",
+                              MessageBoxButton.OK, MessageBoxImage.Information);
+                ResetInput();
+            }
         }
 
         private bool ValidateInput()
@@ -75,7 +123,14 @@ namespace FARM_MANAGEMENT_WPF
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
+            
+        }
 
+        private void ResetInput()
+        {
+            dpFeedingDate.SelectedDate = null;
+            txtAmount.Text = string.Empty;
+            cboFood.SelectedIndex = -1;
         }
     }
 }

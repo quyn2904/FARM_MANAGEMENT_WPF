@@ -109,16 +109,19 @@
           RowHeight="50">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Mã Chuồng" 
-                          Binding="{Binding CageId}"    
+                          Binding="{Binding Cage.CageId}"    
                           Width="100"/>
                 <DataGridTextColumn Header="Vị trí" 
-                          Binding="{Binding Location}"
+                          Binding="{Binding Cage.Location}"
                           Width="*"/>
-                <DataGridTextColumn Header="Sức chứa" 
-                          Binding="{Binding Capacity}"
+                <DataGridTextColumn Header="Sức chứa tổng" 
+                          Binding="{Binding Cage.Capacity}"
                           Width="100"/>
+                <DataGridTextColumn Header="Số lượng hiện tại" 
+                          Binding="{Binding Quantity}"
+                          Width="120"/>
                 <DataGridTextColumn Header="Trạng thái" 
-                          Binding="{Binding Status}"
+                          Binding="{Binding Cage.Status}"
                           Width="150"/>
                 <DataGridTemplateColumn Header="Thao tác" Width="200">
                     <DataGridTemplateColumn.CellTemplate>
@@ -129,24 +132,6 @@
                                 Width="80"
                                 Height="35"
                                 Background="#4A6741"
-                                Foreground="White"
-                                BorderThickness="0"
-                                Margin="5">
-                                    <Button.Style>
-                                        <Style TargetType="Button">
-                                            <Style.Triggers>
-                                                <Trigger Property="IsMouseOver" Value="True">
-                                                    <Setter Property="Opacity" Value="0.8"/>
-                                                </Trigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </Button.Style>
-                                </Button>
-                                <Button Content="Xóa"
-                                Click="btnDelete_Click"
-                                Width="80"
-                                Height="35"
-                                Background="#d32f2f"
                                 Foreground="White"
                                 BorderThickness="0"
                                 Margin="5">
