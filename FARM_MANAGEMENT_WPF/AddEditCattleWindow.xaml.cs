@@ -64,7 +64,7 @@ namespace FARM_MANAGEMENT_WPF
 
         private void LoadCages()
         {
-            List<Cage> cages = _cageService.GetAllCage();
+            List<Cage> cages = _cageService.GetAllActiveCage();
             cboCage.ItemsSource = cages;
             cboCage.DisplayMemberPath = "CageId";
             cboCage.SelectedValuePath = "CageId";

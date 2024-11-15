@@ -87,10 +87,8 @@ namespace FARM_MANAGEMENT_WPF
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             var addWindow = new AddEditCattleWindow();
-            if (addWindow.ShowDialog() == true)
-            {
-                LoadCattles();
-            }
+            addWindow.ShowDialog();
+            LoadCattles();
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)

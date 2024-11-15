@@ -31,6 +31,11 @@ namespace Services
             return this.unitOfWork.CageRepository.Get().ToList();
         }
 
+        public List<Cage> GetAllActiveCage()
+        {
+            return this.unitOfWork.CageRepository.Get(item => item.Status == "active").ToList();
+        }
+
         public Cage GetCageById(int id)
         {
             return this.unitOfWork.CageRepository.GetById(id);

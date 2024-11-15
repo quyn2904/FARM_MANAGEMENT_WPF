@@ -84,7 +84,6 @@
                     Foreground="White"
                     BorderThickness="0"
                     Click="btnCancel_Click"/>
-
             <Button Grid.Column="2"
                     Content="Nhập kho"
                     Width="100"
