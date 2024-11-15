@@ -148,7 +148,10 @@
                 <DataGridTextColumn Header="Tình trạng" 
                                   Binding="{Binding Cattle.HealthStatus}"
                                   Width="120"/>
-                <DataGridTemplateColumn Header="Thao tác" Width="300">
+                <DataGridTextColumn Header="Trạng Thái" 
+                                  Binding="{Binding Cattle.HealthStatus}"
+                                  Width="120"/>
+                <DataGridTemplateColumn Header="Thao tác" Width="auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -171,6 +174,13 @@
                                         Width="70" Height="35"
                                         Background="#FFA000"
                                         Foreground="White"
+                                        BorderThickness="0"
+                                        Margin="5"/>
+                                <Button Content="Lịch sử chuồng"
+                                        Click="btnLog_Click"
+                                        Width="100" Height="35"
+                                        Background="#FF5BE242"
+                                        Foreground="#FFE54F4F"
                                         BorderThickness="0"
                                         Margin="5"/>
                                 <Button Content="Xóa"

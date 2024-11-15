@@ -1,62 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\",
+  "WorkspaceRootPath": "D:\\LearningMaterial\\FPT\\CN5\\PRN212\\FARM_MANAGEMENT_WPF\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{437F1543-88F6-42AA-9E88-380CDFA14091}|FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF.csproj|d:\\fpt\\ki5\\prn212\\2tr5\\farm_management_wpf\\farm_management_wpf\\importfoodwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{437F1543-88F6-42AA-9E88-380CDFA14091}|FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF.csproj|solutionrelative:farm_management_wpf\\importfoodwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{437F1543-88F6-42AA-9E88-380CDFA14091}|FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF.csproj|d:\\learningmaterial\\fpt\\cn5\\prn212\\farm_management_wpf\\farm_management_wpf\\addeditcagewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{437F1543-88F6-42AA-9E88-380CDFA14091}|FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF.csproj|solutionrelative:farm_management_wpf\\addeditcagewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{437F1543-88F6-42AA-9E88-380CDFA14091}|FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF.csproj|d:\\fpt\\ki5\\prn212\\2tr5\\farm_management_wpf\\farm_management_wpf\\importdrugwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{437F1543-88F6-42AA-9E88-380CDFA14091}|FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF.csproj|solutionrelative:farm_management_wpf\\importdrugwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{437F1543-88F6-42AA-9E88-380CDFA14091}|FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF.csproj|d:\\learningmaterial\\fpt\\cn5\\prn212\\farm_management_wpf\\farm_management_wpf\\cagemanagementwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{437F1543-88F6-42AA-9E88-380CDFA14091}|FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF.csproj|solutionrelative:farm_management_wpf\\cagemanagementwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{437F1543-88F6-42AA-9E88-380CDFA14091}|FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF.csproj|d:\\fpt\\ki5\\prn212\\2tr5\\farm_management_wpf\\farm_management_wpf\\foodmanagementwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{437F1543-88F6-42AA-9E88-380CDFA14091}|FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF.csproj|solutionrelative:farm_management_wpf\\foodmanagementwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{437F1543-88F6-42AA-9E88-380CDFA14091}|FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF.csproj|d:\\learningmaterial\\fpt\\cn5\\prn212\\farm_management_wpf\\farm_management_wpf\\cattlefeedingwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{437F1543-88F6-42AA-9E88-380CDFA14091}|FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF.csproj|solutionrelative:farm_management_wpf\\cattlefeedingwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{437F1543-88F6-42AA-9E88-380CDFA14091}|FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF.csproj|d:\\fpt\\ki5\\prn212\\2tr5\\farm_management_wpf\\farm_management_wpf\\addeditdrugwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{437F1543-88F6-42AA-9E88-380CDFA14091}|FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF.csproj|solutionrelative:farm_management_wpf\\addeditdrugwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AB82BF13-BA6F-4FE0-BF9B-018DE86B76D6}|Services\\Services.csproj|d:\\fpt\\ki5\\prn212\\2tr5\\farm_management_wpf\\services\\foodservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AB82BF13-BA6F-4FE0-BF9B-018DE86B76D6}|Services\\Services.csproj|solutionrelative:services\\foodservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AB82BF13-BA6F-4FE0-BF9B-018DE86B76D6}|Services\\Services.csproj|d:\\fpt\\ki5\\prn212\\2tr5\\farm_management_wpf\\services\\drugservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AB82BF13-BA6F-4FE0-BF9B-018DE86B76D6}|Services\\Services.csproj|solutionrelative:services\\drugservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AB82BF13-BA6F-4FE0-BF9B-018DE86B76D6}|Services\\Services.csproj|d:\\fpt\\ki5\\prn212\\2tr5\\farm_management_wpf\\services\\cattleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AB82BF13-BA6F-4FE0-BF9B-018DE86B76D6}|Services\\Services.csproj|solutionrelative:services\\cattleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{437F1543-88F6-42AA-9E88-380CDFA14091}|FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF.csproj|d:\\fpt\\ki5\\prn212\\2tr5\\farm_management_wpf\\farm_management_wpf\\drugmanagementwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{437F1543-88F6-42AA-9E88-380CDFA14091}|FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF.csproj|solutionrelative:farm_management_wpf\\drugmanagementwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{437F1543-88F6-42AA-9E88-380CDFA14091}|FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF.csproj|d:\\fpt\\ki5\\prn212\\2tr5\\farm_management_wpf\\farm_management_wpf\\feedingschedulewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{437F1543-88F6-42AA-9E88-380CDFA14091}|FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF.csproj|d:\\learningmaterial\\fpt\\cn5\\prn212\\farm_management_wpf\\farm_management_wpf\\feedingschedulewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{437F1543-88F6-42AA-9E88-380CDFA14091}|FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF.csproj|solutionrelative:farm_management_wpf\\feedingschedulewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EC10D329-F4F4-4DE7-B9E1-70F210F2141A}|Repositories\\Repositories.csproj|d:\\fpt\\ki5\\prn212\\2tr5\\farm_management_wpf\\repositories\\myfarmcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EC10D329-F4F4-4DE7-B9E1-70F210F2141A}|Repositories\\Repositories.csproj|solutionrelative:repositories\\myfarmcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EC10D329-F4F4-4DE7-B9E1-70F210F2141A}|Repositories\\Repositories.csproj|d:\\fpt\\ki5\\prn212\\2tr5\\farm_management_wpf\\repositories\\staffrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EC10D329-F4F4-4DE7-B9E1-70F210F2141A}|Repositories\\Repositories.csproj|solutionrelative:repositories\\staffrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{437F1543-88F6-42AA-9E88-380CDFA14091}|FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF.csproj|d:\\fpt\\ki5\\prn212\\2tr5\\farm_management_wpf\\farm_management_wpf\\cagemanagementwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{437F1543-88F6-42AA-9E88-380CDFA14091}|FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF.csproj|solutionrelative:farm_management_wpf\\cagemanagementwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{437F1543-88F6-42AA-9E88-380CDFA14091}|FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF.csproj|d:\\fpt\\ki5\\prn212\\2tr5\\farm_management_wpf\\farm_management_wpf\\cartwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{437F1543-88F6-42AA-9E88-380CDFA14091}|FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF.csproj|solutionrelative:farm_management_wpf\\cartwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{437F1543-88F6-42AA-9E88-380CDFA14091}|FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF.csproj|d:\\fpt\\ki5\\prn212\\2tr5\\farm_management_wpf\\farm_management_wpf\\cartwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{437F1543-88F6-42AA-9E88-380CDFA14091}|FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF.csproj|solutionrelative:farm_management_wpf\\cartwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -71,165 +31,52 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ImportFoodWindow.xaml",
-              "DocumentMoniker": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF\\ImportFoodWindow.xaml",
-              "RelativeDocumentMoniker": "FARM_MANAGEMENT_WPF\\ImportFoodWindow.xaml",
-              "ToolTip": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF\\ImportFoodWindow.xaml",
-              "RelativeToolTip": "FARM_MANAGEMENT_WPF\\ImportFoodWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-11-05T10:49:14.204Z",
+              "Title": "AddEditCageWindow.xaml.cs",
+              "DocumentMoniker": "D:\\LearningMaterial\\FPT\\CN5\\PRN212\\FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF\\AddEditCageWindow.xaml.cs",
+              "RelativeDocumentMoniker": "FARM_MANAGEMENT_WPF\\AddEditCageWindow.xaml.cs",
+              "ToolTip": "D:\\LearningMaterial\\FPT\\CN5\\PRN212\\FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF\\AddEditCageWindow.xaml.cs",
+              "RelativeToolTip": "FARM_MANAGEMENT_WPF\\AddEditCageWindow.xaml.cs",
+              "ViewState": "AgIAADoAAAAAAAAAAAAkwEkAAABfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T20:09:48.037Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ImportDrugWindow.xaml.cs",
-              "DocumentMoniker": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF\\ImportDrugWindow.xaml.cs",
-              "RelativeDocumentMoniker": "FARM_MANAGEMENT_WPF\\ImportDrugWindow.xaml.cs",
-              "ToolTip": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF\\ImportDrugWindow.xaml.cs",
-              "RelativeToolTip": "FARM_MANAGEMENT_WPF\\ImportDrugWindow.xaml.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAmwDUAAAARAAAAAAAAAA==",
+              "Title": "CageManagementWindow.xaml.cs",
+              "DocumentMoniker": "D:\\LearningMaterial\\FPT\\CN5\\PRN212\\FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF\\CageManagementWindow.xaml.cs",
+              "RelativeDocumentMoniker": "FARM_MANAGEMENT_WPF\\CageManagementWindow.xaml.cs",
+              "ToolTip": "D:\\LearningMaterial\\FPT\\CN5\\PRN212\\FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF\\CageManagementWindow.xaml.cs",
+              "RelativeToolTip": "FARM_MANAGEMENT_WPF\\CageManagementWindow.xaml.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T10:49:34.113Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AddEditDrugWindow.xaml.cs",
-              "DocumentMoniker": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF\\AddEditDrugWindow.xaml.cs",
-              "RelativeDocumentMoniker": "FARM_MANAGEMENT_WPF\\AddEditDrugWindow.xaml.cs",
-              "ToolTip": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF\\AddEditDrugWindow.xaml.cs",
-              "RelativeToolTip": "FARM_MANAGEMENT_WPF\\AddEditDrugWindow.xaml.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAgwDMAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T10:36:33.947Z"
+              "WhenOpened": "2024-11-15T20:08:50.982Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "FoodManagementWindow.xaml",
-              "DocumentMoniker": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF\\FoodManagementWindow.xaml",
-              "RelativeDocumentMoniker": "FARM_MANAGEMENT_WPF\\FoodManagementWindow.xaml",
-              "ToolTip": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF\\FoodManagementWindow.xaml",
-              "RelativeToolTip": "FARM_MANAGEMENT_WPF\\FoodManagementWindow.xaml",
+              "Title": "CattleFeedingWindow.xaml",
+              "DocumentMoniker": "D:\\LearningMaterial\\FPT\\CN5\\PRN212\\FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF\\CattleFeedingWindow.xaml",
+              "RelativeDocumentMoniker": "FARM_MANAGEMENT_WPF\\CattleFeedingWindow.xaml",
+              "ToolTip": "D:\\LearningMaterial\\FPT\\CN5\\PRN212\\FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF\\CattleFeedingWindow.xaml",
+              "RelativeToolTip": "FARM_MANAGEMENT_WPF\\CattleFeedingWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-11-05T09:04:41.996Z"
+              "WhenOpened": "2024-11-15T20:06:06.61Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "FoodService.cs",
-              "DocumentMoniker": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\Services\\FoodService.cs",
-              "RelativeDocumentMoniker": "Services\\FoodService.cs",
-              "ToolTip": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\Services\\FoodService.cs",
-              "RelativeToolTip": "Services\\FoodService.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAQwBwAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T08:52:55.304Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "DrugService.cs",
-              "DocumentMoniker": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\Services\\DrugService.cs",
-              "RelativeDocumentMoniker": "Services\\DrugService.cs",
-              "ToolTip": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\Services\\DrugService.cs",
-              "RelativeToolTip": "Services\\DrugService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD0AAABCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T09:56:21.902Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "CattleService.cs",
-              "DocumentMoniker": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\Services\\CattleService.cs",
-              "RelativeDocumentMoniker": "Services\\CattleService.cs",
-              "ToolTip": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\Services\\CattleService.cs",
-              "RelativeToolTip": "Services\\CattleService.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwCUAAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T08:52:21.107Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "DrugManagementWindow.xaml",
-              "DocumentMoniker": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF\\DrugManagementWindow.xaml",
-              "RelativeDocumentMoniker": "FARM_MANAGEMENT_WPF\\DrugManagementWindow.xaml",
-              "ToolTip": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF\\DrugManagementWindow.xaml",
-              "RelativeToolTip": "FARM_MANAGEMENT_WPF\\DrugManagementWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-11-05T09:49:59.669Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 3,
               "Title": "FeedingScheduleWindow.xaml",
-              "DocumentMoniker": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF\\FeedingScheduleWindow.xaml",
+              "DocumentMoniker": "D:\\LearningMaterial\\FPT\\CN5\\PRN212\\FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF\\FeedingScheduleWindow.xaml",
               "RelativeDocumentMoniker": "FARM_MANAGEMENT_WPF\\FeedingScheduleWindow.xaml",
-              "ToolTip": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF\\FeedingScheduleWindow.xaml",
+              "ToolTip": "D:\\LearningMaterial\\FPT\\CN5\\PRN212\\FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF\\FeedingScheduleWindow.xaml",
               "RelativeToolTip": "FARM_MANAGEMENT_WPF\\FeedingScheduleWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-11-05T09:51:33.906Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "CartWindow.xaml",
-              "DocumentMoniker": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF\\CartWindow.xaml",
-              "RelativeDocumentMoniker": "FARM_MANAGEMENT_WPF\\CartWindow.xaml",
-              "ToolTip": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF\\CartWindow.xaml",
-              "RelativeToolTip": "FARM_MANAGEMENT_WPF\\CartWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-11-05T09:09:32.778Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "CartWindow.xaml.cs",
-              "DocumentMoniker": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF\\CartWindow.xaml.cs",
-              "RelativeDocumentMoniker": "FARM_MANAGEMENT_WPF\\CartWindow.xaml.cs",
-              "ToolTip": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF\\CartWindow.xaml.cs",
-              "RelativeToolTip": "FARM_MANAGEMENT_WPF\\CartWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T09:09:36.318Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "MyFarmContext.cs",
-              "DocumentMoniker": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\Repositories\\MyFarmContext.cs",
-              "RelativeDocumentMoniker": "Repositories\\MyFarmContext.cs",
-              "ToolTip": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\Repositories\\MyFarmContext.cs",
-              "RelativeToolTip": "Repositories\\MyFarmContext.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAUwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T09:21:13.331Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "StaffRepository.cs",
-              "DocumentMoniker": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\Repositories\\StaffRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\StaffRepository.cs",
-              "ToolTip": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\Repositories\\StaffRepository.cs",
-              "RelativeToolTip": "Repositories\\StaffRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T09:21:11.057Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "CageManagementWindow.xaml",
-              "DocumentMoniker": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF\\CageManagementWindow.xaml",
-              "RelativeDocumentMoniker": "FARM_MANAGEMENT_WPF\\CageManagementWindow.xaml",
-              "ToolTip": "D:\\FPT\\Ki5\\PRN212\\2tr5\\FARM_MANAGEMENT_WPF\\FARM_MANAGEMENT_WPF\\CageManagementWindow.xaml",
-              "RelativeToolTip": "FARM_MANAGEMENT_WPF\\CageManagementWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-11-05T09:09:45.489Z"
+              "WhenOpened": "2024-11-15T20:05:15.606Z",
+              "EditorCaption": ""
             }
           ]
         }

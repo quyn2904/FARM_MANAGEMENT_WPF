@@ -124,6 +124,13 @@ namespace FARM_MANAGEMENT_WPF
             LoadCattles();
         }
 
+        private void btnLog_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedCattle = dgCattle.SelectedItem as CattleWithCageId;
+            CattleByCageLogWindow cattleByCageLogWindow = new CattleByCageLogWindow(selectedCattle.Cattle.CattleId);
+            cattleByCageLogWindow.ShowDialog();
+        }
+
         private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
 

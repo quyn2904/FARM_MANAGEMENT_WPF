@@ -35,7 +35,7 @@ namespace Services
 
         public List<CattleByCage> FindCattleByCage(int cattleId)
         {
-            return this.unitOfWork.CattleByCageRepository.Get(c => c.CattleId == cattleId).ToList();
+            return this.unitOfWork.CattleByCageRepository.Get(item => item.CattleId.Equals(cattleId)).ToList();
         }
 
         public CattleByCage GetDefaultCage(int cattleId)
@@ -78,5 +78,7 @@ namespace Services
             var currentQuantity = this.unitOfWork.CattleByCageRepository.Get(c => c.CageId == cageId && c.EndingTimestamp.Value == null).Count();
             return this.unitOfWork.CageRepository.Get(c => c.CageId == cageId).FirstOrDefault().Capacity > currentQuantity;
         }
+
+        public bool IsCageUnempty(int cageId) => this.unitOfWork.CattleByCageRepository.Get(item => item.CageId.Equals(cageId)).Any();
     }
 }

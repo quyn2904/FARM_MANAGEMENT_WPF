@@ -23,22 +23,25 @@ namespace FARM_MANAGEMENT_WPF
     public partial class AddEditCageWindow : Window
     {
         private CageService _cageService;
+        private CattleByCageService _cattleByCageService;
         private Cage cage;
         public AddEditCageWindow()
         {
             InitializeComponent();
             _cageService = CageService.GetInstance();
+            txtTitle.Text = "Add New Cage";
         }
 
         public AddEditCageWindow(Cage cage)
         {
             InitializeComponent();
             _cageService = CageService.GetInstance();
+            _cattleByCageService = CattleByCageService.GetInstance();
             this.cage = cage;
-            //txtLocation.Text = cage.Location;
+            txtLocation.Text = cage.Location;
+            txtTitle.Text = "Update Cage With Id: " + cage.CageId;
             txtCapacity.Text = cage.Capacity.ToString();
             cboStatus.Text = cage.Status;
-            
         }
 
         private void LoadCageData()
@@ -64,12 +67,22 @@ namespace FARM_MANAGEMENT_WPF
                 }
                 else
                 {
-                    this.cage.Location = txtLocation.Text;
-                    this.cage.Capacity = int.Parse(txtCapacity.Text);
-                    this.cage.Status = cboStatus.SelectionBoxItem.ToString();
-                    this._cageService.UpdateCage(this.cage);
-                    MessageBox.Show("Update Cage Successfully");
-                    this.Close();
+                    if (this.cage.Status != cboStatus.SelectionBoxItem.ToString())
+                    {
+                        if (this._cattleByCageService.IsCageUnempty(cage.CageId))
+                        {
+                            MessageBox.Show("Please move out all cattle before change status");
+                        }
+                        else
+                        {
+                            this.cage.Location = txtLocation.Text;
+                            this.cage.Capacity = int.Parse(txtCapacity.Text);
+                            this.cage.Status = cboStatus.SelectionBoxItem.ToString();
+                            this._cageService.UpdateCage(this.cage);
+                            MessageBox.Show("Update Cage Successfully");
+                            this.Close();
+                        }
+                    }     
                 }
            }
         }
